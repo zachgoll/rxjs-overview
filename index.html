@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learn RxJS</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Observable output <button class="btn btn-primary" onclick="restart()">Restart</button></h1>
+    <hr>
+    <h3>Two observers to a single Observable</h3>
+    <p>Notice that even though they are observing the same Observable, they are not receving
+        identical values at the same time
+    </p>
+    <div class="row">
+        <div class="col-6">
+            <ul class="list-group">
+                <li class="list-group-item" id="my-list-item-1">Count is: 0</li>
+            </ul>
+        </div>
+        <div class="col-6">
+            <ul class="list-group">
+                <li class="list-group-item" id="my-list-item-2">Count is: 0</li>
+            </ul>
+        </div>
+    </div>
+
+    <br>
+
+    <h3>Parent and child observers to single observable</h3>
+    <p>We have two observers subscribing to an observable at the same time, but the left
+        observable is the <em>parent</em> to the right observable.  After 4 seconds, we manually 
+        unsubscribe both by unsubscribing the parent.
+    </p>
+    <div class="row">
+        <div class="col-6">
+            <ul class="list-group">
+                <li class="list-group-item" id="my-list-item-3">Count is: 0</li>
+            </ul>
+        </div>
+        <div class="col-6">
+            <ul class="list-group">
+                <li class="list-group-item" id="my-list-item-4">Count is: 0</li>
+            </ul>
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <h1>Subject output <button class="btn btn-primary" onclick="restart()">Restart</button></h1>
+    <p>A Subject is just a variation of an Observable.  A subject is just an Observer that can also emit values.</p>
+    <hr>
+    <h3>Two subjects to a single Observable</h3>
+    <p>
+        Notice that subscriber 2 subscribes to the subject several seconds later than subscriber 1 and will only receive
+        <em>new</em> values, not old ones like in the observable example.
+    </p>
+    <div class="row">
+        <div class="col-4">
+            <p id="join-time-1"><strong>All Stream Values</strong></p>
+            <ul class="list-group" id="subject1">
+            </ul>
+        </div>
+        <div class="col-4">
+            <p><strong>Subscriber 1</strong></p>
+            <p id="join-time-2"></p>
+            <ul class="list-group" id="subject2">
+            </ul>
+        </div>
+        <div class="col-4">
+            <p><strong>Subscriber 2</strong></p>
+            <p id="join-time-3"></p>
+            <ul class="list-group" id="subject3">
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Uses the compiled javascript bundle created by webpack (allows us to write
+    code in new versions of javascript) -->
+    <script src="/bundle.js"></script>
+    <script>
+        function restart() {
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>

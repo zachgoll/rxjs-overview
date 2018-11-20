@@ -1,0 +1,22 @@
+{
+  "name": "zachgoll-rxjs-overview",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/zachgoll/rxjs-overview.git",
+  "author": "Zach Gollwitzer <zach.gollwitzer@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --mode development"
+  },
+  "dependencies": {
+    "rxjs": "^6.3.3",
+    "rxjs-compat": "^6.3.3",
+    "ts-loader": "^5.3.0",
+    "typescript": "^3.1.6",
+    "webpack": "^4.26.0",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.2"
+  }
+}
